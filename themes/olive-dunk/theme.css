@@ -370,3 +370,24 @@ body {
 .markdown-preview-view {
   font-size-adjust: none;
 }
+
+/* ---------- 15. Module Calendar (liamcain) ---------- */
+/* Dans un panneau étroit (barre de droite), le tableau débordait à droite :
+   colonnes de largeur égale, marges internes réduites, sans agrandissement d'interface. */
+#calendar-container {
+  font-size-adjust: none;
+}
+#calendar-container .container {
+  padding: 0 10px 0 8px;
+}
+#calendar-container .calendar {
+  table-layout: fixed;
+  width: 100%;
+}
+#calendar-container .calendar th {
+  padding: 4px 0;
+  letter-spacing: 0.5px;
+}
+#calendar-container .calendar .day {
+  padding: 4px 0;
+}
