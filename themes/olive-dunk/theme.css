@@ -1,0 +1,372 @@
+/* =========================================================
+   Olive Dunk — thème Obsidian personnel
+   Reproduit le thème « Olive Dunk » de Bear (Shiny Frog).
+   Couleurs et typographie reprises du fichier Olive Dunk.theme de Bear.
+   Mode clair uniquement : appliqué aussi quand Obsidian est en sombre.
+   Polices Bear Sans / Roboto Mono ajoutées par build.py depuis Bear.app
+   (usage strictement personnel, jamais versionnées).
+   ========================================================= */
+
+/* ---------- 1. Palette Olive Dunk ---------- */
+body.theme-light,
+body.theme-dark {
+  color-scheme: light;
+
+  /* Base */
+  --od-text: #423f37;
+  --od-text-2: #617872;
+  --od-text-3: #727f7a;
+  --od-bg: #fbfaf0;
+  --od-bg-2: #f6f6e9;
+  --od-bg-3: #e9e7d1;
+  --od-stroke: #d1cacb;
+  --od-accent: #95afa3;
+  --od-search: #e7f9c6;
+  --od-selection: #b2d2c7;
+  --od-selection-inactive: #dad9be;
+  --od-separator: #e2e2da;
+  --od-toolbar-icon: #908a7b;
+  /* Barre latérale */
+  --od-side-text: #445b4d;
+  --od-side-text-2: #2b2925;
+  --od-side-bg: #e6e5de;
+  --od-side-bg-2: #c4d6cd;
+  --od-side-accent: #bacfc2;
+  --od-side-icon: #6a665c;
+  --od-side-hover: #dad9d2;
+  /* Éditeur */
+  --od-heading: #2b6451;
+  --od-link: #28816a;
+  --od-marker: #c3cac4;
+  --od-code-bg: #f1f1e2;
+  --od-task: #c2bcbd;
+  --od-tag-bg: #d6e0d6;
+  --od-tag-text: #59544a;
+  --od-tag-marker: #98a798;
+  --od-hl-bg: #fbc7c2;
+  --od-hl-text: #300703;
+
+  /* ---------- 2. Échelle de base Obsidian (sert aussi en mode sombre) ---------- */
+  --color-base-00: var(--od-bg);
+  --color-base-05: var(--od-bg-2);
+  --color-base-10: var(--od-code-bg);
+  --color-base-20: var(--od-side-bg);
+  --color-base-25: var(--od-bg-3);
+  --color-base-30: var(--od-separator);
+  --color-base-35: var(--od-stroke);
+  --color-base-40: var(--od-marker);
+  --color-base-50: var(--od-toolbar-icon);
+  --color-base-60: var(--od-text-3);
+  --color-base-70: var(--od-text-2);
+  --color-base-100: var(--od-text);
+
+  --accent-h: 152;
+  --accent-s: 14%;
+  --accent-l: 63%;
+  --color-accent: var(--od-accent);
+
+  /* ---------- 3. Fonds ---------- */
+  --background-primary: var(--od-bg);
+  --background-primary-alt: var(--od-bg-2);
+  --background-secondary: var(--od-side-bg);
+  --background-secondary-alt: var(--od-side-bg);
+  --background-modifier-hover: rgba(66, 63, 55, 0.12);
+  --background-modifier-active-hover: var(--od-side-bg-2);
+  --background-modifier-border: var(--od-separator);
+  --background-modifier-border-hover: var(--od-stroke);
+  --background-modifier-border-focus: var(--od-accent);
+  --background-modifier-form-field: var(--od-bg);
+  --background-modifier-form-field-highlighted: var(--od-bg);
+  --background-modifier-message: var(--od-text);
+  --titlebar-background: var(--od-side-bg);
+  --titlebar-background-focused: var(--od-side-bg);
+  --titlebar-text-color: var(--od-text-2);
+  --titlebar-text-color-focused: var(--od-text);
+  --tab-container-background: var(--od-side-bg);
+  --tab-background-active: var(--od-bg);
+  --tab-text-color: var(--od-text-2);
+  --tab-text-color-focused: var(--od-text);
+  --tab-text-color-focused-active: var(--od-text);
+  --tab-text-color-focused-active-current: var(--od-text);
+  --ribbon-background: var(--od-side-bg);
+  --ribbon-background-collapsed: var(--od-side-bg);
+  --status-bar-background: var(--od-side-bg);
+  --status-bar-text-color: var(--od-text-2);
+  --status-bar-border-color: var(--od-separator);
+  --divider-color: var(--od-separator);
+  --modal-background: var(--od-bg);
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: rgba(66, 63, 55, 0.15);
+  --scrollbar-active-thumb-bg: rgba(66, 63, 55, 0.3);
+
+  /* ---------- 4. Texte ---------- */
+  --text-normal: var(--od-text);
+  --text-muted: var(--od-text-2);
+  --text-faint: var(--od-text-3);
+  --text-accent: var(--od-link);
+  --text-accent-hover: var(--od-heading);
+  --text-on-accent: var(--od-side-text-2);
+  --text-on-accent-inverted: var(--od-bg);
+  --text-selection: var(--od-selection);
+  --text-highlight-bg: var(--od-hl-bg);
+  --text-highlight-bg-active: var(--od-search);
+  --caret-color: var(--od-accent);
+  --bold-color: inherit;
+  --italic-color: inherit;
+
+  --interactive-normal: var(--od-bg);
+  --interactive-hover: var(--od-bg-2);
+  --interactive-accent: var(--od-accent);
+  --interactive-accent-hover: #86a294;
+
+  --icon-color: var(--od-toolbar-icon);
+  --icon-color-hover: var(--od-text);
+  --icon-color-active: var(--od-heading);
+  --icon-color-focused: var(--od-text);
+
+  /* ---------- 5. Typographie Bear ---------- */
+  --font-text-theme: "Olive Bear Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-interface-theme: "Olive Bear Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-monospace-theme: "Olive Roboto Mono", "SF Mono", Menlo, monospace;
+  --font-text-size: 15px;
+  --line-height-normal: 1.5;
+  --line-height-tight: 1.3;
+  --file-line-width: 630px;
+
+  /* Titres : Bear Sans Heading, échelle modulaire 1,125 */
+  --od-heading-font: "Olive Bear Sans Heading", "Olive Bear Sans", -apple-system, sans-serif;
+  --h1-font: var(--od-heading-font);
+  --h2-font: var(--od-heading-font);
+  --h3-font: var(--od-heading-font);
+  --h4-font: var(--od-heading-font);
+  --h5-font: var(--od-heading-font);
+  --h6-font: var(--od-heading-font);
+  --h1-size: 1.802em;
+  --h2-size: 1.602em;
+  --h3-size: 1.424em;
+  --h4-size: 1.266em;
+  --h5-size: 1.125em;
+  --h6-size: 1em;
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+  --h1-line-height: 1.3;
+  --h2-line-height: 1.3;
+  --h3-line-height: 1.3;
+  --h4-line-height: 1.3;
+  --h5-line-height: 1.3;
+  --h6-line-height: 1.3;
+  --h1-color: var(--od-heading);
+  --h2-color: var(--od-heading);
+  --h3-color: var(--od-heading);
+  --h4-color: var(--od-heading);
+  --h5-color: var(--od-heading);
+  --h6-color: var(--od-heading);
+  --inline-title-font: var(--od-heading-font);
+  --inline-title-size: var(--h1-size);
+  --inline-title-weight: 600;
+  --inline-title-line-height: 1.3;
+  --inline-title-color: var(--od-heading);
+
+  /* ---------- 6. Liens ---------- */
+  --link-color: var(--od-link);
+  --link-color-hover: var(--od-heading);
+  --link-external-color: var(--od-link);
+  --link-external-color-hover: var(--od-heading);
+  --link-unresolved-color: var(--od-text-2);
+  --link-unresolved-opacity: 1;
+  --link-unresolved-decoration-color: var(--od-marker);
+
+  /* ---------- 7. Listes et tâches ---------- */
+  --list-marker-color: var(--od-accent);
+  --list-marker-color-hover: var(--od-heading);
+  --list-marker-color-collapsed: var(--od-heading);
+  --checkbox-radius: 4px;
+  --checkbox-border-color: var(--od-task);
+  --checkbox-border-color-hover: var(--od-accent);
+  --checkbox-color: var(--od-task);
+  --checkbox-color-hover: var(--od-accent);
+  --checkbox-marker-color: var(--od-bg);
+  --checklist-done-color: var(--od-text-2);
+  --checklist-done-decoration: line-through;
+
+  /* ---------- 8. Tags ---------- */
+  --tag-background: var(--od-tag-bg);
+  --tag-background-hover: var(--od-side-accent);
+  --tag-color: var(--od-tag-text);
+  --tag-color-hover: var(--od-tag-text);
+  --tag-border-width: 0;
+  --tag-radius: 1em;
+  --tag-padding-x: 0.55em;
+  --tag-padding-y: 0.12em;
+  --tag-size: 0.93em;
+  --tag-decoration: none;
+  --tag-decoration-hover: none;
+
+  /* ---------- 9. Code ---------- */
+  --code-background: var(--od-code-bg);
+  --code-normal: var(--od-text);
+  --code-size: 0.93em;
+  --code-radius: 6px;
+  --code-border-width: 0;
+  --code-comment: #878b88;
+  --code-function: #6a6f80;
+  --code-important: #7f446d;
+  --code-keyword: #9c598c;
+  --code-operator: #494140;
+  --code-property: #9c598c;
+  --code-punctuation: #494140;
+  --code-string: #ae5a17;
+  --code-tag: #7f446d;
+  --code-value: #337f00;
+
+  /* ---------- 10. Citations, séparateurs, tableaux ---------- */
+  --blockquote-border-color: var(--od-accent);
+  --blockquote-border-thickness: 3px;
+  --blockquote-color: var(--od-text);
+  --blockquote-background-color: transparent;
+  --hr-color: var(--od-stroke);
+  --hr-thickness: 1px;
+  --table-border-color: var(--od-stroke);
+  --table-header-background: var(--od-bg);
+  --table-header-background-hover: var(--od-bg);
+  --table-header-color: var(--od-text);
+  --table-row-background-hover: transparent;
+  --table-row-alt-background: var(--od-bg-2);
+  --table-row-alt-background-hover: var(--od-bg-2);
+
+  /* ---------- 11. Barre latérale ---------- */
+  --nav-item-color: var(--od-side-text);
+  --nav-item-color-hover: var(--od-side-text-2);
+  --nav-item-color-active: var(--od-side-text-2);
+  --nav-item-color-selected: var(--od-side-text-2);
+  --nav-item-color-highlighted: var(--od-heading);
+  --nav-item-background-hover: rgba(66, 63, 55, 0.12);
+  --nav-item-background-active: var(--od-side-bg-2);
+  --nav-item-background-selected: var(--od-side-bg-2);
+  --nav-collapse-icon-color: var(--od-side-icon);
+  --nav-collapse-icon-color-collapsed: var(--od-side-icon);
+  --nav-indentation-guide-color: var(--od-separator);
+}
+
+/* ---------- 12. Ajustements fins façon Bear ---------- */
+
+/* Surlignage ==texte== : fond rose et texte foncé de Bear */
+.markdown-rendered mark,
+.cm-s-obsidian span.cm-highlight {
+  background-color: var(--od-hl-bg);
+  color: var(--od-hl-text);
+  border-radius: 3px;
+}
+
+/* Marqueurs Markdown (**, _, #, `, >) en gris-vert clair comme dans Bear */
+.cm-s-obsidian span.cm-formatting:not(.cm-formatting-list):not(.cm-formatting-task):not(.cm-hashtag) {
+  color: var(--od-marker);
+}
+
+/* Le « # » des tags en gris-vert, le reste du tag en pastille */
+.cm-s-obsidian span.cm-hashtag-begin {
+  color: var(--od-tag-marker);
+}
+
+/* Code en ligne : fond clair, sans bordure */
+.markdown-rendered code,
+.cm-s-obsidian span.cm-inline-code {
+  background-color: var(--od-code-bg);
+  border-radius: 4px;
+}
+
+/* Blocs de code : fond Bear, coins arrondis, un peu d'air */
+.markdown-rendered pre {
+  background-color: var(--od-code-bg);
+  border: none;
+  border-radius: 6px;
+  padding: 1em 1.1em;
+}
+
+/* Tableaux : une ligne sur deux légèrement teintée */
+.markdown-rendered tbody tr:nth-child(even),
+.cm-s-obsidian .cm-table-widget tbody tr:nth-child(even) {
+  background-color: var(--od-bg-2);
+}
+
+/* Espacement des titres (Bear : 0,5 au-dessus, 0,3 en dessous) */
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 1.1em;
+  margin-bottom: 0.45em;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
+}
+
+/* Sélection inactive */
+.cm-editor:not(.cm-focused) .cm-selectionBackground {
+  background-color: var(--od-selection-inactive) !important;
+}
+
+/* Fichier actif dans l'explorateur, comme l'élément sélectionné de Bear */
+.nav-file-title.is-active,
+.tree-item-self.is-active {
+  background-color: var(--od-side-bg-2);
+  color: var(--od-side-text-2);
+}
+
+/* ---------- 13. Survols et info-bulles lisibles ---------- */
+/* Info-bulles : fond crème, texte foncé, bordure fine (comme les info-bulles macOS de Bear) */
+.tooltip {
+  background-color: var(--od-bg);
+  color: var(--od-text);
+  border: 1px solid var(--od-stroke);
+  box-shadow: 0 2px 8px rgba(66, 63, 55, 0.18);
+}
+.tooltip .tooltip-arrow {
+  border-bottom-color: var(--od-stroke);
+}
+.tooltip.mod-right .tooltip-arrow { border-right-color: var(--od-stroke); border-bottom-color: transparent; }
+.tooltip.mod-left .tooltip-arrow { border-left-color: var(--od-stroke); border-bottom-color: transparent; }
+.tooltip.mod-top .tooltip-arrow { border-top-color: var(--od-stroke); border-bottom-color: transparent; }
+
+/* Notifications : fond foncé, texte crème */
+.notice {
+  background-color: var(--od-text);
+  color: var(--od-bg);
+}
+
+/* Icônes survolées : fond visible, icône foncée */
+.clickable-icon:hover,
+.side-dock-ribbon-action:hover,
+.workspace-tab-header:hover .workspace-tab-header-inner,
+.nav-action-button:hover {
+  background-color: rgba(66, 63, 55, 0.12);
+  color: var(--od-text);
+}
+.clickable-icon.is-active {
+  background-color: var(--od-side-bg-2);
+  color: var(--od-side-text-2);
+}
+
+/* Menus contextuels : élément survolé bien visible */
+.menu-item:not(.is-disabled):not(.is-label):hover,
+.menu-item.selected:not(.is-disabled):not(.is-label),
+.suggestion-item.is-selected {
+  background-color: var(--od-side-bg-2);
+  color: var(--od-side-text-2);
+}
+
+/* ---------- 14. Taille du texte de l'interface ---------- */
+/* Bear Sans a des minuscules plus petites que la police système d'Apple :
+   on agrandit légèrement l'interface (menus, barre latérale, réglages…)
+   sans toucher au texte des notes. Augmenter la valeur pour grossir (0.53 = police système). */
+body {
+  --od-ui-adjust: 0.51;
+  font-size-adjust: var(--od-ui-adjust);
+}
+.markdown-source-view,
+.markdown-rendered,
+.markdown-preview-view {
+  font-size-adjust: none;
+}
